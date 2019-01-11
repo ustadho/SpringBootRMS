@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class BootcampSpringbootApplication {
+public class RMSApplication {
 
-	Logger logger = LoggerFactory.getLogger(BootcampSpringbootApplication.class);
+	Logger logger = LoggerFactory.getLogger(RMSApplication.class);
 	public static void main(String[] args) {
-		SpringApplication.run(BootcampSpringbootApplication.class, args);
+		SpringApplication.run(RMSApplication.class, args);
 	}
 
 	@RequestMapping("hello")

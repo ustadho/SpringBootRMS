@@ -1,0 +1,21 @@
+<html layout:decorator="layout">
+    <div layout:fragment="content">
+        <h2>User</h2>
+        <form th:object="${user}" class="form-horizontal" id="add-owner-form" method="post">
+            <div class="form-group has-feedback">
+                <input
+                        th:replace="~{fragments/inputField :: input ('Username', 'userName', 'text')}" />
+                <input
+                        th:replace="~{fragments/inputField :: input ('Password', 'password', 'text')}" />
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button
+                            th:with="text=${user.id}==null ? 'Add User' : 'Update User'"
+                            class="btn btn-default" type="submit" th:text="${text}">Add
+                        Owner</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</html>
