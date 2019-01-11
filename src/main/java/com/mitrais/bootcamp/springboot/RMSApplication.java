@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+@Controller
 public class RMSApplication {
 
 	Logger logger = LoggerFactory.getLogger(RMSApplication.class);
@@ -16,10 +18,9 @@ public class RMSApplication {
 		SpringApplication.run(RMSApplication.class, args);
 	}
 
-	@RequestMapping("hello")
-	public String hello() {
-		logger.debug("Mencetak Hello");
-		return "Hello";
+	@GetMapping("login")
+	public String login() {
+		return "login";
 	}
 }
 

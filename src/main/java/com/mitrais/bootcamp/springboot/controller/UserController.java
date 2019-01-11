@@ -23,26 +23,10 @@ public class UserController {
         this.userDao = ud;
     }
 
-    @GetMapping("/signup")
-    public  String signup(){
-        return "add-users";
-    }
-
-
     @GetMapping("")
     private String findAll(Model model){
         model.addAttribute("list", userDao.findAll());
         return VIEWS_USER_LIST;
-    }
-
-    public String addUser(@Valid User user, BindingResult result, Model model){
-        if(result.hasErrors()){
-            return "add-users";
-        }
-
-        userDao.save(user);
-        model.addAttribute("users", userDao.findAll());
-        return "welcome";
     }
 
     @GetMapping("new")

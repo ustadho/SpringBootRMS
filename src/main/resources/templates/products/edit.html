@@ -1,0 +1,26 @@
+<html layout:decorator="layout">
+<head>
+    <title>Add/ Edit Product</title>
+</head>
+    <div layout:fragment="content">
+        <h2>Products</h2>
+        <form th:object="${product}" th:action="@{/product/new}" class="form-horizontal" id="add-product-form" method="post">
+            <div class="form-group has-feedback">
+                <input
+                        th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
+                <input
+                        th:replace="~{fragments/inputField :: input ('Description', 'description', 'text')}" />
+                <input
+                        th:replace="~{fragments/inputField :: input ('Price', 'price', 'text')}" />
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button
+                            th:with="text=${product.id}==null ? 'Add Product' : 'Update Product'"
+                            class="btn btn-default" type="submit" th:text="${text}">Add
+                        Owner</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</html>
