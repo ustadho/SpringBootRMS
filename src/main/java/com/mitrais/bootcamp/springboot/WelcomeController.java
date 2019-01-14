@@ -25,6 +25,12 @@ public class WelcomeController {
         return "welcome";
     }
 
+    @RequestMapping("/home")
+    public String home(Map<String, Object> model){
+        model.put("message", this.message);
+        return "welcome";
+    }
+
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

@@ -62,12 +62,12 @@ public class ProductController {
     }
 
     @PostMapping("{id}/edit")
-    private String updateUser(@Valid Product user, BindingResult bindingResult, @PathVariable Long id){
+    private String updateUser(@Valid Product product, BindingResult bindingResult, @PathVariable Long id){
         if(bindingResult.hasErrors()){
             return VIEWS_PRODUCT_CREATE_OR_UPDATE_FORM;
         }else{
-            user.setId(id);
-            this.productDao.save(user);
+            product.setId(id);
+            this.productDao.save(product);
             return "redirect:/products" ;
         }
     }

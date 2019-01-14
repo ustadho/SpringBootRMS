@@ -32,29 +32,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">RMS Spring Boot</a>
+            <a class="navbar-brand" href="/">RMS Spring Boot</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="active"><a href="/products">Product</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/users">User</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contact">Contact</a></li>
+                <li th:class="${#strings.replace(#httpServletRequest.requestURI, 'URI :', '')=='/'}? active : ''"><a href="/" >Home</a></li>
+                <li th:class="${#strings.replace(#httpServletRequest.requestURI, 'URI :', '')=='/users'}? active : ''"><a href="/users" >Users</a></li>
+                <li th:class="${#strings.replace(#httpServletRequest.requestURI, 'URI :', '')=='/products'}? active : ''"><a href="/products" >Product</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a><span class="glyphicon glyphicon-user"></span> [[${#httpServletRequest.remoteUser}]]</a> </li>
                 <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
